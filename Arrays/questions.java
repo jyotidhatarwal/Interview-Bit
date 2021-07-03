@@ -99,3 +99,35 @@ public class Solution {
     }
 }
 
+
+/*      ROTATE MATRIX  */
+
+
+public class Solution {
+	public void rotate(ArrayList<ArrayList<Integer>> a) {
+	    transpose(a);
+		// reverse gevery row
+		for(int i=0;i<a.size();i++){
+			Collections.reverse(a.get(i));
+		}
+	}
+	private void transpose(ArrayList<ArrayList<Integer>> a){
+	    int n = a.size();
+	    int m = a.get(0).size();
+	    for(int i=0;i<n;i++){
+	        for(int j=0;j<i;j++){
+	            swap(a,i,j);
+	        }
+	    }
+	}
+	private void swap(ArrayList<ArrayList<Integer>> a,int i,int j){
+	    ArrayList<Integer> l1 = a.get(i);
+	    ArrayList<Integer> l2 = a.get(j);
+	    int temp = l1.get(j);
+	    l1.set(j,l2.get(i));
+	    l2.set(i,temp);  
+	}
+
+}
+
+
